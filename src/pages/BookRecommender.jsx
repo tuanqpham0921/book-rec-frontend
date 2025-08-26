@@ -34,18 +34,24 @@ export const BookRecommender = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-6 bg-gray-50 min-h-screen">
-      <SearchSection 
-        searchInput={searchInput}
-        setSearchInput={setSearchInput}
-        activeFilters={activeFilters}
-        removeFilter={removeFilter}
-        responseText={mockContent}
-      />
+    <div className="max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
+        {/* Left Side - Search, Filters, and Smart Filters */}
+        <div className="space-y-6">
+          <SearchSection 
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+            activeFilters={activeFilters}
+            removeFilter={removeFilter}
+            responseText={mockContent}
+          />
+          <SmartFilters smartFilters={smartFilters} />
+        </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        <SmartFilters smartFilters={smartFilters} />
-        <BooksGrid books={books} />
+        {/* Right Side - Books Grid */}
+        <div className="lg:pl-4">
+          <BooksGrid books={books} />
+        </div>
       </div>
     </div>
   );
