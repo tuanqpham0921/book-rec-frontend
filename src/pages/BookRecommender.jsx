@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { SearchSection } from '../components/SearchSection';
-import { SmartFilters } from '../components/SmartFilters';
 import { BooksGrid } from '../components/BooksGrid';
 import { mockRecommendations, mockFilters, mockContent } from '../data/mockData';
 
@@ -27,8 +26,6 @@ export const BookRecommender = () => {
     categories: book.categories
   }));
 
-  const smartFilters = ['classic', 'literature', 'fiction', 'fantasy', 'romance'];
-
   const removeFilter = (filter) => {
     setActiveFilters(activeFilters.filter(f => f !== filter));
   };
@@ -36,7 +33,7 @@ export const BookRecommender = () => {
   return (
     <div className="max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
-        {/* Left Side - Search, Filters, and Smart Filters */}
+        {/* Left Side - Search and Filters */}
         <div className="space-y-6">
           <SearchSection 
             searchInput={searchInput}
@@ -45,7 +42,6 @@ export const BookRecommender = () => {
             removeFilter={removeFilter}
             responseText={mockContent}
           />
-          <SmartFilters smartFilters={smartFilters} />
         </div>
 
         {/* Right Side - Books Grid */}
