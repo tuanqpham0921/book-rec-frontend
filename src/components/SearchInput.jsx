@@ -11,9 +11,9 @@ export const SearchInput = ({ searchInput, setSearchInput, onSend }) => {
       />
       <button
         onClick={onSend}
-        className="absolute right-3 bottom-1 bg-gray-600 text-white rounded-full w-12 h-12 flex items-center justify-center hover:bg-gray-700 transition-colors"
+        className="absolute right-2 bottom-1 bg-gray-600 text-white rounded-full w-10 h-10 md:w-12 md:h-12 md:right-3 flex items-center justify-center hover:bg-gray-700 transition-colors"
       >
-        <ArrowRight size={96}/>
+        <ArrowRight size={20} className="md:w-6 md:h-6"/>
       </button>
     </div>
   );
