@@ -33,8 +33,11 @@ body {
 .mb-6 { margin-bottom: 1.5rem; }
 .mb-4 { margin-bottom: 1rem; }
 .mb-2 { margin-bottom: 0.5rem; }
-.mb-1 { margin-bottom: 0.25rem; }
+.mb-1 { margin-bottom: 0.10rem; }
+.mt-1 { margin-bottom: 0.10rem; }
+
 .mt-8 { margin-top: 2rem; }
+.mt-auto { margin-top: auto; }
 .pt-6 { padding-top: 1.5rem; }
 .mr-2 { margin-right: 0.5rem; }
 
@@ -53,9 +56,12 @@ body {
 .h-5 { height: 1.25rem; }
 .h-2 { height: 0.5rem; }
 
-.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
 .text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-md { font-size: 1.000rem; line-height: 1.30rem; }
 .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-xs { font-size: 0.780rem; line-height: 1.125rem; }
+
 .font-bold { font-weight: 700; }
 .font-semibold { font-weight: 600; }
 
@@ -82,6 +88,7 @@ body {
 
 .grid { display: grid; }
 .flex { display: flex; }
+.flex-col { flex-direction: column; }
 .items-center { align-items: center; }
 .justify-center { justify-content: center; }
 .flex-wrap { flex-wrap: wrap; }
@@ -135,4 +142,15 @@ button {
 
 input {
   font-family: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+#container {
+    position: relative;
+}
+#container-mid {
+    position: bottom;
 }

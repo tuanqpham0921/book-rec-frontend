@@ -33,7 +33,8 @@ export const BookRecommender = () => {
   return (
     <div className="max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
-        {/* Left Side - Search and Filters */}
+        {/* Left Side - Search and Filters*/}
+        {/* TODO: this will have to be in a Chatbot component*/}
         <div className="space-y-6">
           <SearchSection 
             searchInput={searchInput}
@@ -45,9 +46,8 @@ export const BookRecommender = () => {
         </div>
 
         {/* Right Side - Books Grid */}
-        <div className="lg:pl-4">
-          <BooksGrid books={books} />
-        </div>
+        <BooksGrid books={books} />
+
       </div>
     </div>
   );
