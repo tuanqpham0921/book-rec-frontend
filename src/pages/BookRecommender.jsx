@@ -49,21 +49,16 @@ export const BookRecommender = () => {
     }
   };
 
-  const removeFilter = (filter) => {
-    setActiveFilters(activeFilters.filter(f => f !== filter));
-  };
-
   return (
     <div className="max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen">
-      <div className={`grid gap-8 h-screen-minus-padding transition-all duration-4000 ease-in-out ${books.length > 0 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
+      <div className={`flex flex-col lg:flex-row gap-8 h-screen-minus-padding ${books.length > 0 ? '' : ''}`}>
         {/* Left Side - Search and Filters*/}
         {/* TODO: this will have to be in a Chatbot component*/}
-        <div className="flex flex-col justify-end h-full">
+        <div className={`flex flex-col justify-end h-full transition-all duration-4000 ease-in-out ${books.length > 0 ? 'w-full lg:w-half' : 'w-full'}`}>
           <SearchSection 
             searchInput={searchInput}
             setSearchInput={setSearchInput}
             activeFilters={activeFilters}
-            removeFilter={removeFilter}
             responseText={mockContent}
             onSend={handleSend}
           />
@@ -71,7 +66,7 @@ export const BookRecommender = () => {
 
         {/* Right Side - Books Grid - Only show if there are books */}
         {books.length > 0 && showBooks && (
-          <div className="h-full overflow-y-auto animate-fadeIn">
+          <div className="w-full lg:w-half h-full overflow-y-auto animate-fadeIn">
             <BooksGrid books={books} />
           </div>
         )}
