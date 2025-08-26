@@ -4,23 +4,20 @@ import { ActiveFilters } from './ActiveFilters';
 
 export const SearchSection = ({ searchInput, setSearchInput, activeFilters, removeFilter, responseText }) => {
   return (
-    
-    <div className="mb-8">
-      <div className="bg-white rounded-2xl p-6 shadow-sm">
-       
-        {/* TODO: This will be in a Chat message section*/}
-        <ResponseText responseText={responseText} />
+    <div className="bg-white rounded-2xl p-6 shadow-sm">
+      
+      {/* TODO: This will be in a Chat message section*/}
+      <ResponseText responseText={responseText} />
 
-        <ActiveFilters 
-          activeFilters={activeFilters}
-          removeFilter={removeFilter}
-        />
+      <ActiveFilters 
+        activeFilters={activeFilters}
+        removeFilter={removeFilter}
+      />
 
-         <SearchInput 
-          searchInput={searchInput}
-          setSearchInput={setSearchInput}
-        />
-      </div>
+      <SearchInput 
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+      />
     </div>
   );
 };
