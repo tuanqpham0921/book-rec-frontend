@@ -12,8 +12,14 @@ export const BookRecommender = () => {
     ...mockFilters.keywords
   ].filter(Boolean));
 
-  // Convert mock recommendations to the format expected by our components
-  const books = mockRecommendations.map(book => ({
+  // State to track which book set to show
+  const [currentBookSet, setCurrentBookSet] = useState(1);
+
+  // Books set 1 - Empty for testing
+  const books_1 = []; 
+  
+  // Books set 2 - Full mock data
+  const books_2 = mockRecommendations.map(book => ({
     id: book.isbn13,
     title: book.title,
     author: book.authors,
@@ -26,13 +32,21 @@ export const BookRecommender = () => {
     categories: book.categories
   }));
 
+  // Current books based on state
+  const books = currentBookSet === 1 ? books_1 : books_2;
+
+  // Function to toggle between book sets
+  const handleSend = () => {
+    setCurrentBookSet(currentBookSet === 1 ? 2 : 1);
+  };
+
   const removeFilter = (filter) => {
     setActiveFilters(activeFilters.filter(f => f !== filter));
   };
 
   return (
     <div className="max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-screen-minus-padding">
+      <div className={`grid gap-8 h-screen-minus-padding ${books.length > 0 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
         {/* Left Side - Search and Filters*/}
         {/* TODO: this will have to be in a Chatbot component*/}
         <div className="flex flex-col justify-end h-full">
@@ -42,13 +56,16 @@ export const BookRecommender = () => {
             activeFilters={activeFilters}
             removeFilter={removeFilter}
             responseText={mockContent}
+            onSend={handleSend}
           />
         </div>
 
-        {/* Right Side - Books Grid */}
-        <div className="h-full overflow-y-auto">
-          <BooksGrid books={books} />
-        </div>
+        {/* Right Side - Books Grid - Only show if there are books */}
+        {books.length > 0 && (
+          <div className="h-full overflow-y-auto">
+            <BooksGrid books={books} />
+          </div>
+        )}
 
       </div>
     </div>

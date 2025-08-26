@@ -2,7 +2,7 @@ import { SearchInput } from './SearchInput';
 import { ResponseText } from './ResponseText';
 import { ActiveFilters } from './ActiveFilters';
 
-export const SearchSection = ({ searchInput, setSearchInput, activeFilters, removeFilter, responseText }) => {
+export const SearchSection = ({ searchInput, setSearchInput, activeFilters, removeFilter, responseText, onSend }) => {
   return (
     <div className="bg-white rounded-2xl p-6 shadow-sm">
       
@@ -17,6 +17,7 @@ export const SearchSection = ({ searchInput, setSearchInput, activeFilters, remo
       <SearchInput 
         searchInput={searchInput}
         setSearchInput={setSearchInput}
+        onSend={onSend}
       />
     </div>
   );
