@@ -1,6 +1,6 @@
 export const BookCard = ({ book }) => {
   return (
-    <div id="container" className="bg-white rounded-2xl p-6 shadow-sm flex flex-col h-full">
+    <div className="bg-white rounded-2xl p-6 shadow-sm flex flex-col h-full">
       <img
         src={book.cover}
         alt={book.title}
