@@ -14,6 +14,7 @@ export const BookRecommender = () => {
 
   // State to track which book set to show
   const [currentBookSet, setCurrentBookSet] = useState(1);
+  const [showBooks, setShowBooks] = useState(false);
 
   // Books set 1 - Empty for testing
   const books_1 = []; 
@@ -35,9 +36,17 @@ export const BookRecommender = () => {
   // Current books based on state
   const books = currentBookSet === 1 ? books_1 : books_2;
 
-  // Function to toggle between book sets
+  // Function to toggle between book sets with staggered animation
   const handleSend = () => {
-    setCurrentBookSet(currentBookSet === 1 ? 2 : 1);
+    if (currentBookSet === 1) {
+      // Going from empty to books: show books immediately
+      setCurrentBookSet(2);
+      setTimeout(() => setShowBooks(true), 100);
+    } else {
+      // Going from books to empty: hide books first, then change layout
+      setShowBooks(false);
+      setTimeout(() => setCurrentBookSet(1), 300);
+    }
   };
 
   const removeFilter = (filter) => {
@@ -46,7 +55,7 @@ export const BookRecommender = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen">
-      <div className={`grid gap-8 h-screen-minus-padding ${books.length > 0 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
+      <div className={`grid gap-8 h-screen-minus-padding transition-all duration-4000 ease-in-out ${books.length > 0 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
         {/* Left Side - Search and Filters*/}
         {/* TODO: this will have to be in a Chatbot component*/}
         <div className="flex flex-col justify-end h-full">
@@ -61,8 +70,8 @@ export const BookRecommender = () => {
         </div>
 
         {/* Right Side - Books Grid - Only show if there are books */}
-        {books.length > 0 && (
-          <div className="h-full overflow-y-auto">
+        {books.length > 0 && showBooks && (
+          <div className="h-full overflow-y-auto animate-fadeIn">
             <BooksGrid books={books} />
           </div>
         )}
