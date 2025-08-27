@@ -1,9 +1,10 @@
 const BASE_URL = "http://127.0.0.1:8000";
 
-async function reasonQuery() {
+async function reasonQuery(query) {
   const res = await fetch(BASE_URL + '/reason_query', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ description: query })
   });
   const data = await res.json();
   if (!res.ok) {
@@ -26,5 +27,5 @@ async function recommendBooks() {
 
 
 export default {
-  createChat, sendChatMessage
+  reasonQuery, recommendBooks
 };
