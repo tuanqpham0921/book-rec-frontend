@@ -1,18 +1,10 @@
 import { useState } from 'react';
-import { SearchSection } from '../components/SearchSection';
+import { Chatbot } from '../components/Chatbot';
 import { BooksGrid } from '../components/BooksGrid';
-import { mockRecommendations, mockFilters, mockContent } from '../data/mockData';
+import { mockRecommendations } from '../data/mockData';
 import { VersionDropdown } from '../components/VersionDropdown';
 
 export const BookRecommender = () => {
-  const [searchInput, setSearchInput] = useState('classic literature books with compelling characters and timeless themes');
-  const [activeFilters, setActiveFilters] = useState([
-    mockFilters.genre,
-    `${mockFilters.pages_min}+ pages`,
-    `${mockFilters.published_year.min}+`,
-    ...mockFilters.keywords
-  ].filter(Boolean));
-
   const [currentBookSet, setCurrentBookSet] = useState(1);
 
   // Books set 1 - Empty for testing
@@ -48,13 +40,7 @@ export const BookRecommender = () => {
             <VersionDropdown />
           </div>
           <div className="flex flex-col justify-end h-full">
-            <SearchSection 
-              searchInput={searchInput}
-              setSearchInput={setSearchInput}
-              activeFilters={activeFilters}
-              responseText={mockContent}
-              onSend={handleSend}
-            />
+            <Chatbot onSend={handleSend} />
           </div>
         </div>
         
