@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export const SearchInput = ({ searchInput, setSearchInput, onSend }) => {
   return (
@@ -11,9 +11,9 @@ export const SearchInput = ({ searchInput, setSearchInput, onSend }) => {
       />
       <button
         onClick={onSend}
-        className="absolute right-2 bottom-1 bg-gray-600 text-white rounded-full w-10 h-10 md:w-12 md:h-12 md:right-3 flex items-center justify-center hover:bg-gray-700 transition-colors"
+        className="absolute right-2 bottom-3 bg-gray-600 text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center hover:bg-gray-700 transition-colors"
       >
-        <ArrowRight size={20} className="md:w-6 md:h-6"/>
+        <ArrowUp size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6"/>
       </button>
     </div>
   );
