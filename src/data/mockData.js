@@ -333,6 +333,27 @@ export const mockBookRecommendationResponse = {
   content: "classic literature books with compelling characters and timeless themes"
 };
 
+export const mockQuery = "classic literature books with compelling characters and timeless themes";
+
+export const mockReasoning = {
+  genre: "Fiction",
+  author: null,
+  pages_min: 200,
+  pages_max: null,
+  published_year: {
+    min: 1900,
+    max: null,
+    exact: null
+  },
+  keywords: ["classic", "literature"],
+  tone: null,
+  children: false
+};
+
+export const mockOverallExplaination = {
+  explain_overall_recommendation: "This recommendation is based on a comprehensive analysis of the user's query, preferences, and the available book data."
+};
+
 // Individual components for easier access
 export const mockRecommendations = mockBookRecommendationResponse.recommendations;
 export const mockValidation = mockBookRecommendationResponse.validation;
