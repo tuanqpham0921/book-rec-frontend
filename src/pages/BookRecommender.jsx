@@ -12,8 +12,13 @@ export const BookRecommender = () => {
     ...mockFilters.keywords
   ].filter(Boolean));
 
+  const [currentBookSet, setCurrentBookSet] = useState(1);
+
+  // Books set 1 - Empty for testing
+  const books_1 = [];
+
   // Always show books_2 - Full mock data
-  const books = mockRecommendations.map(book => ({
+  const books_2 = mockRecommendations.map(book => ({
     id: book.isbn13,
     title: book.title,
     author: book.authors,
@@ -26,9 +31,11 @@ export const BookRecommender = () => {
     categories: book.categories
   }));
 
-  // Button does nothing (no-op)
+  const books = currentBookSet === 1 ? books_1 : books_2;
+
+  // Function to toggle between book sets
   const handleSend = () => {
-    // No action needed
+    setCurrentBookSet(currentBookSet === 1 ? 2 : 1);
   };
 
   return (
