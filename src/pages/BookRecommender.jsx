@@ -39,7 +39,7 @@ export const BookRecommender = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen">
+    <div className="max-w-7xl mx-auto p-6 bg-white min-h-screen">
       <div className="flex flex-col lg:flex-row gap-8 h-screen-minus-padding">
         {/* Left Side - Search and Filters*/}
         {/* TODO: this will have to be in a Chatbot component*/}
