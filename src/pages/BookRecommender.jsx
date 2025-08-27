@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { SearchSection } from '../components/SearchSection';
 import { BooksGrid } from '../components/BooksGrid';
+import { VersionDropdown } from '../components/VersionDropdown';
 // import { VersionSwitcher } from '../components/VersionSwitcher';
 import { mockRecommendations, mockFilters, mockContent } from '../data/mockData';
 
@@ -54,30 +55,34 @@ export const BookRecommender = () => {
     <div className="min-h-screen bg-gray-50 flex">
       {/* Side Navigation Bar */}
       {/* <SideNavbar /> */}
-
+      
       {/* Main Content Area */}
       <div className="flex-1 p-6">
+        <VersionDropdown />
         <div className={`grid gap-8 h-screen-minus-padding transition-all duration-1000 ease-in-out ${books.length > 0 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
           {/* Left Side - Search and Filters*/}
           {/* TODO: this will have to be in a Chatbot component*/}
-          <div className="flex flex-col justify-end h-full">
+          {/* <div className="flex flex-col justify-end h-full">
             <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <p className="text-lg font-bold leading-relaxed">
-                Book Recommender
-              </p>
+              <div className="flex items-center justify-between">
+                <p className="text-lg font-bold leading-relaxed">
+                  Book Recommender
+                </p>
+                <VersionDropdown />
+              </div>
               {/* <VersionSwitcher currentVersion="v3" /> */}
-            </div>
+            {/* </div> */} 
             
-            <div className="flex flex-col justify-end h-full">
-              <SearchSection 
-                searchInput={searchInput}
-                setSearchInput={setSearchInput}
-                activeFilters={activeFilters}
-                responseText={mockContent}
-                onSend={handleSend}
-              />
-            </div>
+          <div className="flex flex-col justify-end h-full">
+            <SearchSection 
+              searchInput={searchInput}
+              setSearchInput={setSearchInput}
+              activeFilters={activeFilters}
+              responseText={mockContent}
+              onSend={handleSend}
+            />
           </div>
+          {/* </div> */}
           
 
           {/* Right Side - Books Grid - Only show if there are books */}
