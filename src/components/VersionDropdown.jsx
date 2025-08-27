@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ArrowLeft } from 'lucide-react';
 
 export const VersionDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,13 +30,24 @@ export const VersionDropdown = () => {
   };
 
   return (
-    <div className="relative inline-block " ref={dropdownRef}>
+    <div className="flex items-center justify-between w-full">
+      {/* Back Button */}
+      <a
+        href="https://tuanqpham0921.com/"
+        className="text-gray-600 hover:text-gray-800 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-100"
+      >
+        <ArrowLeft size={20} />
+      </a>
+
+      {/* Version Dropdown */}
+      <div className="relative inline-block " ref={dropdownRef}>
+      
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center pl-4 text-lg font-semibold text-gray-800 hover:text-gray-700 hover:bg-gray-100 rounded-lg px-4 py-2 transition-all duration-200"
       >
         Book Recommender {selectedVersion}
-        <ChevronDown className={`ml-025 text-gray-500`} />
+        <ChevronDown className={`text-gray-500 mt-1`} />
       </button>
 
       {isOpen && (
@@ -62,6 +73,7 @@ export const VersionDropdown = () => {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 };

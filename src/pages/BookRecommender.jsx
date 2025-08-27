@@ -44,7 +44,7 @@ export const BookRecommender = () => {
       <div className="flex flex-col lg:flex-row gap-8 h-screen-minus-padding">
         {/* Left Side - Search and Filters*/}
         <div className='flex flex-col w-full'>
-          <div className="flex justify-end mb-4">
+          <div className="flex mb-4">
             <VersionDropdown />
           </div>
           <div className="flex flex-col justify-end h-full">
