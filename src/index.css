@@ -1,19 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import 'tailwindcss';
 
+/* Custom utilities */
+@layer utilities {
+  .h-screen-minus-padding {
+    height: calc(100vh - 3rem);
+  }
 
-/* Utility classes - only the ones actually used */
-
-.h-screen-minus-padding { height: calc(100vh - 3rem); }
-
-.animate-fadeIn {
-  animation: fadeIn 0.6s ease-out forwards;
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
 }
 
-/* Fade in animation for books grid */
+/* Custom animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
