@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { SearchSection } from '../components/SearchSection';
 import { BooksGrid } from '../components/BooksGrid';
 import { mockRecommendations, mockFilters, mockContent } from '../data/mockData';
+import { VersionDropdown } from '../components/VersionDropdown';
 
 export const BookRecommender = () => {
   const [searchInput, setSearchInput] = useState('classic literature books with compelling characters and timeless themes');
@@ -42,19 +43,22 @@ export const BookRecommender = () => {
     <div className="max-w-7xl mx-auto p-6 bg-white min-h-screen">
       <div className="flex flex-col lg:flex-row gap-8 h-screen-minus-padding">
         {/* Left Side - Search and Filters*/}
-        {/* TODO: this will have to be in a Chatbot component*/}
-        <div className="flex flex-col justify-end h-full transition-all duration-4000 ease-in-out w-full lg:w-half">
-          <SearchSection 
-            searchInput={searchInput}
-            setSearchInput={setSearchInput}
-            activeFilters={activeFilters}
-            responseText={mockContent}
-            onSend={handleSend}
-          />
+        <div className='flex flex-col w-full'>
+          <VersionDropdown />
+          <div className="flex flex-col justify-end h-full">
+            <SearchSection 
+              searchInput={searchInput}
+              setSearchInput={setSearchInput}
+              activeFilters={activeFilters}
+              responseText={mockContent}
+              onSend={handleSend}
+            />
+          </div>
         </div>
+        
 
         {/* Right Side - Books Grid - Always show books_2 */}
-        <div className="w-full lg:w-half h-full overflow-y-auto animate-fadeIn">
+        <div className="w-full h-full overflow-y-auto animate-fadeIn">
           <BooksGrid books={books} />
         </div>
 
