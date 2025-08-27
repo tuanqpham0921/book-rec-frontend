@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Chatbot } from '../components/Chatbot';
-import { BooksGrid } from '../components/BooksGrid';
-import { mockRecommendations } from '../data/mockData';
-import { VersionDropdown } from '../components/VersionDropdown';
+import { Chatbot } from '@/components/Chatbot';
+import { BooksGrid } from '@/components/BooksGrid';
+import { mockRecommendations } from '@/data/mockData';
+import { VersionDropdown } from '@/components/VersionDropdown';
 
 export const BookRecommender = () => {
   const [currentBookSet, setCurrentBookSet] = useState(1);
