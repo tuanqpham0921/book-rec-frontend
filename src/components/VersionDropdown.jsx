@@ -30,7 +30,7 @@ export const VersionDropdown = () => {
   };
 
   return (
-    <div className="relative inline-block" ref={dropdownRef}>
+    <div className="relative inline-block " ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center pl-4 text-lg font-semibold text-gray-800 hover:text-gray-700 hover:bg-gray-100 rounded-lg px-4 py-2 transition-all duration-200"

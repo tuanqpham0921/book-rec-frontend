@@ -53,26 +53,11 @@ export const BookRecommender = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex">
-      {/* Side Navigation Bar */}
-      {/* <SideNavbar /> */}
-      
       {/* Main Content Area */}
       <div className="flex-1 p-6">
-        <VersionDropdown />
+        {/* <VersionDropdown /> */}
         <div className={`grid gap-8 h-screen-minus-padding transition-all duration-1000 ease-in-out ${books.length > 0 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
           {/* Left Side - Search and Filters*/}
-          {/* TODO: this will have to be in a Chatbot component*/}
-          {/* <div className="flex flex-col justify-end h-full">
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <div className="flex items-center justify-between">
-                <p className="text-lg font-bold leading-relaxed">
-                  Book Recommender
-                </p>
-                <VersionDropdown />
-              </div>
-              {/* <VersionSwitcher currentVersion="v3" /> */}
-            {/* </div> */} 
-            
           <div className="flex flex-col justify-end h-full">
             <SearchSection 
               searchInput={searchInput}
@@ -82,9 +67,7 @@ export const BookRecommender = () => {
               onSend={handleSend}
             />
           </div>
-          {/* </div> */}
           
-
           {/* Right Side - Books Grid - Only show if there are books */}
           {books.length > 0 && showBooks && (
             <div className="h-full overflow-y-auto animate-fadeIn">
