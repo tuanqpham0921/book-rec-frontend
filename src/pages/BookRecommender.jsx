@@ -12,15 +12,8 @@ export const BookRecommender = () => {
     ...mockFilters.keywords
   ].filter(Boolean));
 
-  // State to track which book set to show
-  const [currentBookSet, setCurrentBookSet] = useState(1);
-  const [showBooks, setShowBooks] = useState(false);
-
-  // Books set 1 - Empty for testing
-  const books_1 = []; 
-  
-  // Books set 2 - Full mock data
-  const books_2 = mockRecommendations.map(book => ({
+  // Always show books_2 - Full mock data
+  const books = mockRecommendations.map(book => ({
     id: book.isbn13,
     title: book.title,
     author: book.authors,
@@ -33,28 +26,17 @@ export const BookRecommender = () => {
     categories: book.categories
   }));
 
-  // Current books based on state
-  const books = currentBookSet === 1 ? books_1 : books_2;
-
-  // Function to toggle between book sets with staggered animation
+  // Button does nothing (no-op)
   const handleSend = () => {
-    if (currentBookSet === 1) {
-      // Going from empty to books: show books immediately
-      setCurrentBookSet(2);
-      setTimeout(() => setShowBooks(true), 100);
-    } else {
-      // Going from books to empty: hide books first, then change layout
-      setShowBooks(false);
-      setTimeout(() => setCurrentBookSet(1), 300);
-    }
+    // No action needed
   };
 
   return (
     <div className="max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen">
-      <div className={`flex flex-col lg:flex-row gap-8 h-screen-minus-padding ${books.length > 0 ? '' : ''}`}>
+      <div className="flex flex-col lg:flex-row gap-8 h-screen-minus-padding">
         {/* Left Side - Search and Filters*/}
         {/* TODO: this will have to be in a Chatbot component*/}
-        <div className={`flex flex-col justify-end h-full transition-all duration-4000 ease-in-out ${books.length > 0 ? 'w-full lg:w-half' : 'w-full'}`}>
+        <div className="flex flex-col justify-end h-full transition-all duration-4000 ease-in-out w-full lg:w-half">
           <SearchSection 
             searchInput={searchInput}
             setSearchInput={setSearchInput}
@@ -64,12 +46,10 @@ export const BookRecommender = () => {
           />
         </div>
 
-        {/* Right Side - Books Grid - Only show if there are books */}
-        {books.length > 0 && showBooks && (
-          <div className="w-full lg:w-half h-full overflow-y-auto animate-fadeIn">
-            <BooksGrid books={books} />
-          </div>
-        )}
+        {/* Right Side - Books Grid - Always show books_2 */}
+        <div className="w-full lg:w-half h-full overflow-y-auto animate-fadeIn">
+          <BooksGrid books={books} />
+        </div>
 
       </div>
     </div>
